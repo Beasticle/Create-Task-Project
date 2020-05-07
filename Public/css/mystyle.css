@@ -1,0 +1,105 @@
+@import url("bootstrap.min.css");
+@import url("bootstrap-theme.css");
+body {
+    margin-top: auto;
+    background-image: url(https://wallpapertag.com/wallpaper/full/b/7/4/156631-new-black-textured-background-1920x1080-images.jpg);
+}
+
+input {
+    border: hidden;
+    background-color: rgb(71, 58, 44);
+    color: azure;
+    margin-bottom: 5px;
+}
+
+
+/*
+background color: rgb(71, 58, 44)
+text color: rgb(105, 35, 25)
+*/
+
+#verus {
+    margin-top: 30px;
+    margin-right: 10px;
+    color: rgb(71, 58, 44);
+}
+
+#single-player {
+    margin-top: 30px;
+}
+
+#test {
+    color: whitesmoke;
+    font-size: large;
+}
+
+.signup {
+    color: white;
+    text-align: center;
+    background-color: rgba(17, 17, 17, .6);
+    width: fit-content;
+    height: max-content;
+    margin-bottom: 10px;
+}
+
+.jumbotron {
+    color: whitesmoke;
+    background-color: rgba(17, 17, 17, .6);
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+}
+
+.btn-dark {
+    margin-top: 10px;
+    background-color: rgb(105, 35, 25);
+}
+
+.btn-dark a {
+    text-align: center;
+    font-size: large;
+    color: aliceblue !important;
+}
+
+.btn-dark a:hover {
+    background-color: azure !important;
+}
+
+.sidenav {
+    height: auto;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0);
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-left: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: whitesmoke;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: rgb(71, 58, 44);
+}
+
+.main {
+    margin-left: 160px;
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 20px;
+    }
+}
