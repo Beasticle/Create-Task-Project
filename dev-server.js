@@ -5,12 +5,11 @@ var app = express()
 var favicon = require('express-favicon');
 const port = 69
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/userData",{config})
-const config = {
-    autoIndex: false,
+mongoose.connect("mongodb://localhost:27017/userData",{ 
+    cautoIndex: false,
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-}
+    useUnifiedTopology: true 
+});
 const { password } = require('./public/js/index.js')
 
 app.use(bodyParser.json());
