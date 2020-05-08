@@ -37,8 +37,8 @@ AccountController.prototype.logon = function(email, password, callback) {
                 if (passwordHash == user.passwordHash) {
                     var userProfileModel = new me.UserProfileModel({
                         email: user.email,
-                        firstName: user.firstName,
-                        lastName: user.lastName
+                        username: user.username,
+                        password: user.password
                     });
                     me.session.userProfileModel = userProfileModel;
                     return callback(err, new me.ApiResponse({
@@ -77,8 +77,8 @@ AccountController.prototype.register = function (newUser, callback) {
                 if (numberAffected === 1) {
                     var userProfileModel = new me.UserProfileModel({
                         email: user.email,
-                        firstName: user.firstName,
-                        lastName: user.lastName
+                        username: user.username,
+                        password: user.password
                     });
                     return callback(err, new me.ApiResponse({
                         success: true, extras: {

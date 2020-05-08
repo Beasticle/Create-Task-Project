@@ -84,28 +84,30 @@
             <!--NAV BAR-->
             <div class="sidenav">
                 <a class="btn btn-dark" href="/" role="button">Home</a>
-                <a class="btn btn-dark" href="./signup.html" role="button">Sign up</a>
+                <a class="btn btn-dark" href="/signup" role="button">Sign up</a>
                 <!--<a class="btn btn-dark" href="./recovery.html" role="button">Support</a>-->
-                <a class="btn btn-dark" href="./about.html" role="button">About</a>
+                <a class="btn btn-dark" href="/about" role="button">About</a>
             </div>
         </div>
     </section>
     <section id="user-signup">
         <!--SCRIPTS-->
-        <script src="./js/index.js"></script>
-        <script src="./js/user-model.js"></script>
+        <script src="./controllers/account.js"></script>
+        <script src="./models/api-messages.js"></script>
+        <script src="./models/api-response.js"></script>
+        <script src="./models/user-profile.js"></script>
+        <script src="./models/user.js"></script>
         <div class="container text-center signup">
-            <form action="./index.html">
+            <form action="/user/signup" method="POST" enctype="text/html">
                 <label for="username">Username</label><br>
-                <input type="text" id="username"><br>
+                <input name="username" text" id="username"><br>
                 <label for="email">Email</label><br>
-                <input type="text" id="email"><br>
+                <input name="email" type="text" id="email"><br>
                 <label for="password">Password</label><br>
-                <input type="text" id="password"><br>
-                <label for="passwd-conf">Confirm Password</label><br>
-                <input type="text" id="password-conf"><br>
-                <input onclick="passCheck(), addUser()" type="submit" value="Submit">
-                <p id="result"></p>
+                <input name="password" type="text" id="password"><br>
+                <label for="password-conf">Confirm Password</label><br>
+                <input name="password-conf" type="text" id="password-conf"><br>
+                <input type="submit" value="Submit">
             </form>
         </div>
     </section>
