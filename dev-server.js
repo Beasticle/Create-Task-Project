@@ -34,7 +34,7 @@ app.get('/computer', (req, res) => {
 app.post('/user/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     const newUser = { username: req.body.username, email: req.body.email, password: req.body.password}
-    AccountController = new AccountController(userModel);
+    //AccountController = new AccountController(userModel);
     AccountController.prototype.register(newUser, function(err, user) {
         res.send(user);
       });
