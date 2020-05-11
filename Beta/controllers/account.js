@@ -4,7 +4,7 @@ var AccountController = function (userModel, session, mailer) {
     this.ApiResponse = require('../models/api-response.js');
     this.ApiMessages = require('../models/api-messages.js');
     this.UserProfileModel = require('../models/user-profile');
-    this.userModel = userModel;
+    this.userModel = require('../models/user.js');
     this.session = session;
     this.mailer = mailer;
 };
@@ -63,6 +63,7 @@ AccountController.prototype.logoff = function () {
 
 AccountController.prototype.register = function (newUser, callback) {
     var me = this;
+    var userModel = require('../models/user.js');
     me.userModel.findOne({ email: newUser.email }, function (err, user) {
         if (err) {
             return callback(err, new me.ApiResponse({ success: false, extras: { msg: me.ApiMessages.DB_ERROR } }));

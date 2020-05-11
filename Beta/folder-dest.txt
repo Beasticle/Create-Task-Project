@@ -1,0 +1,9 @@
+Destations:
+
+    Models will go in Create task.
+    Controllers will go in Create task.
+
+Configs: 
+
+    Update all the sources in all the files
+     

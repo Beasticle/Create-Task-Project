@@ -1,11 +1,13 @@
-const express = require('express')
-var util = require('util')
-var app = express()
-var favicon = require('express-favicon');
-const port = 69
-var AccountController = require('./Public/controllers/account.js')
-var userModel = require('./Public/models/user.js')
-app.use(express.urlencoded({ extended: false }));
+const favicon = require('express-favicon');
+const BodyParser = require('raw-body');
+const express = require('express');
+const util = require('util');
+const fs = require('fs');
+var app = express();
+const port = 69;
+//var AccountController = require('./Public/controllers/account.js')
+//var userModel = require('./Public/models/user.js')
+app.use(BodyParser.json)
 
 app.get('/', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -33,11 +35,8 @@ app.get('/computer', (req, res) => {
 
 app.post('/user/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
-    const newUser = { username: req.body.username, email: req.body.email, password: req.body.password}
     //AccountController = new AccountController(userModel);
-    AccountController.prototype.register(newUser, function(err, user) {
-        res.send(user);
-      });
+    fs.writeFileSync('./Database/users.json', {username:req.body.username});
   })
 
 //app.get('/support', (req, res) => {
