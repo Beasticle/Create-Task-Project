@@ -32,9 +32,23 @@ text color: rgb(105, 35, 25)
     color: whitesmoke;
     font-size: large;
 }
-.game-container {
+
+.game-button {
     background-color: rgba(17, 17, 17, .6);
+    font-size: inherit;
+    border: transparent;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    top: 25%;
+    left: 0%;
+    transform: translate(0%, -50%);
+}
+
+.game-container {
+    /*background-color: rgba(17, 17, 17, .6);*/
     width: fit-content;
+    height: fit-content;
 }
 .game--container {
     display: grid;
