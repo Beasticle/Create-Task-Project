@@ -14,7 +14,7 @@ const Gameboard = (function () {
     ];
   
     // A tally of X's and O's played that are a part of _winningPatterns
-    let _tallyX = [
+    var _tallyX = [
       [],
       [],
       [],
@@ -24,7 +24,7 @@ const Gameboard = (function () {
       [],
       []
     ];
-    let _tallyO = [
+    var _tallyO = [
       [],
       [],
       [],
@@ -36,17 +36,17 @@ const Gameboard = (function () {
     ];
   
     // Starts the game with Player 1 as "X"
-    let playerTurn = 'one';
-    let _marker = 'X';
+    var playerTurn = 'one';
+    var _marker = 'X';
   
     // Empty gameboard to start
-    let gameboardArray = [' ', ' ', ' ',
+    var gameboardArray = [' ', ' ', ' ',
       ' ', ' ', ' ',
       ' ', ' ', ' '
     ];
   
     // Result to be a win by Player 1, Player 2, or a tie
-    let result = null;
+    var result = null;
   
     // Refresh page
     const refreshBtn = document.getElementById('reset-btn');
@@ -64,7 +64,7 @@ const Gameboard = (function () {
     const aiChoice = function () {
       function aiFunc() {
         while (playerTurn === 'two') {
-          let randomPosition = Math.floor(Math.random() * Math.floor(_squares.length));
+          var randomPosition = Math.floor(Math.random() * Math.floor(_squares.length));
           if (_squares[randomPosition].innerHTML === '') {
             _squares[randomPosition].innerHTML = 'O';
             gameboardArray.splice(randomPosition, 1, 'O');
@@ -84,7 +84,7 @@ const Gameboard = (function () {
   
     // Check if the square clicked is not taken then add "X" or "O" to that square
     function addPiece(e) {
-      let _position = Number(e.target.id.slice(-1));
+      var _position = Number(e.target.id.slice(-1));
   
       if (playerTurn === 'one' && e.target.innerHTML === '') {
         e.target.innerHTML = 'X';
@@ -111,11 +111,11 @@ const Gameboard = (function () {
   
     // Check for a winner or tie
     function checkGame() {
-      let positionsOfX = [];
-      let positionsOfO = [];
+      var positionsOfX = [];
+      var positionsOfO = [];
   
       // Keeps track of positions taken by "X" and "O"
-      for (let i = 0; i < gameboardArray.length; i++) {
+      for (var i = 0; i < gameboardArray.length; i++) {
         if (gameboardArray[i] === 'X') {
           positionsOfX.push(i);
         } else if (gameboardArray[i] === 'O') {
@@ -124,8 +124,8 @@ const Gameboard = (function () {
       }
   
       // Determine if "X" wins
-      for (let i = 0; i < _winningPatterns.length; i++) {
-        for (let y = 0; y < positionsOfX.length; y++) {
+      for (var i = 0; i < _winningPatterns.length; i++) {
+        for (var y = 0; y < positionsOfX.length; y++) {
           if (_winningPatterns[i].includes(positionsOfX[y]) && _tallyX[i].includes(positionsOfX[y]) === false) {
             _tallyX[i].push(positionsOfX[y]);
           }
@@ -139,8 +139,8 @@ const Gameboard = (function () {
       }
   
       // Determine if "O" wins
-      for (let i = 0; i < _winningPatterns.length; i++) {
-        for (let y = 0; y < positionsOfO.length; y++) {
+      for (var i = 0; i < _winningPatterns.length; i++) {
+        for (var y = 0; y < positionsOfO.length; y++) {
           if (_winningPatterns[i].includes(positionsOfO[y]) && _tallyO[i].includes(positionsOfO[y]) === false) {
             _tallyO[i].push(positionsOfO[y]);
           }
@@ -203,7 +203,7 @@ const Gameboard = (function () {
         gameboardArray = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
         result = null;
   
-        for (let i = 0; i < boardMarkers.length; i++) {
+        for (var i = 0; i < boardMarkers.length; i++) {
           boardMarkers[i].innerHTML = '';
         }
       });
@@ -237,7 +237,7 @@ const Gameboard = (function () {
     const playerIconLabel = document.getElementById('player-label');
     const playerOneLabel = document.getElementById('player-one');
     const playerTwoLabel = document.getElementById('player-two');
-    let currentBoard;
+    var currentBoard;
   
     const selectOnePlayer = function () {
       currentBoard = Gameboard.gameboardArray.filter((index) => index === ' ');
@@ -293,7 +293,7 @@ const Gameboard = (function () {
     // Mute and unmute sounds
     const muteBtn = document.getElementById('sound');
     const unmuteBtn = document.getElementById('mute');
-    let sound = 'on';
+    var sound = 'on';
   
     const toggleSound = () => {
       if (sound === 'on') {

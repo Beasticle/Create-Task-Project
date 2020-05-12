@@ -72,16 +72,15 @@
     <!--CUSTOM CSS AND IMPORTS-->
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/standard.css">
-    <link rel="stylesheet" type="text/css" href="css/game.css">
 </head>
 
 <body>
     <!--TOP BANNER-->
     <section id="top-banner">
         <div class="container-fluid">
-            <div class="jumbotron jumbotron-fluid">
-                <h1 style="text-align: center;">Single Player</h1>
-                <p style="text-align: center;">You are X's</p>
+            <div class="jumbotron jumbotron-fluid text-center">
+                <h1>Single Player</h1>
+                <p>You are X's</p>
             </div>
             <!--NAV BAR-->
             <div class="sidenav">
@@ -95,15 +94,23 @@
     
     <section class="container">
         <div class="gameboard">
-            <div id="square-0" class="square"><div>
-            <div id="square-1" class="square"></div>
-            <div id="square-2" class="square"></div>
-            <div id="square-3" class="square"></div>
-            <div id="square-4" class="square"></div>
-            <div id="square-5" class="square"></div>
-            <div id="square-6" class="square"></div>
-            <div id="square-7" class="square"></div>
-            <div id="square-8" class="square"></div>
+            <table id="game-table">
+                <tr>
+                    <th><div class="square" id="square-0"></div></th>
+                    <th><div class="square" id="square-1"></div></th>
+                    <th><div class="square" id="square-2"></div></th>
+                </tr>
+                <tr>
+                    <th><div class="square" id="square-3"></div></th>
+                    <th><div class="square" id="square-4"></div></th>
+                    <th><div class="square" id="square-5"></div></th>
+                </tr>
+                <tr>
+                    <th><div class="square" id="square-6"></div></th>
+                    <th><div class="square" id="square-7"></div></th>
+                    <th><div class="square" id="square-8"></div></th>
+                </tr>
+            </table>
         </div>
     </section>
 
@@ -134,7 +141,7 @@
       </section>
     <!--SCRIPTS-->
     <script src="https://kit.fontawesome.com/b61ef1ecc4.js" crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/bundle.js"></script>
 </body>
 
 </html>
