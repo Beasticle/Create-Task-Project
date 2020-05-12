@@ -3,8 +3,8 @@
 
 <head>
     <!--<style>
-        @import url("bootstrap.min.css");
-        @import url("bootstrap-theme.css");
+        /*@import url("bootstrap.min.css");
+        @import url("bootstrap-theme.css");*/
         body {
             margin-top: auto;
             background-color: black;
@@ -67,8 +67,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--CUSTOM CSS AND IMPORTS-->
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
@@ -80,6 +80,7 @@
         <div class="container-fluid">
             <div class="jumbotron jumbotron-fluid">
                 <h1 style="text-align: center;">Single Player</h1>
+                <p style="text-align: center;">You are X's</p>
             </div>
             <!--NAV BAR-->
             <div class="sidenav">
@@ -90,12 +91,25 @@
             </div>
         </div>
     </section>
+    <section id="ttt_board">
+        <div class="container-fluid game-container text-center">
+            <div class="game--container">
+                <div data-cell-index="0" class="cell"></div>
+                <div data-cell-index="1" class="cell"></div>
+                <div data-cell-index="2" class="cell"></div>
+                <div data-cell-index="3" class="cell"></div>
+                <div data-cell-index="4" class="cell"></div>
+                <div data-cell-index="5" class="cell"></div>
+                <div data-cell-index="6" class="cell"></div>
+                <div data-cell-index="7" class="cell"></div>
+                <div data-cell-index="8" class="cell"></div>
+            </div>
+        </div>
+        <h2 class="game-status"></h2>
+        <button class="text-center btn btn-dark game--restart">Restart Game</button>
+    </section>
     <!--SCRIPTS-->
-    <script src="./js/index.js"></script>
-    <script>
-        guestAlert()
-    </script>
+    <script src="./js/tictactoe.js"></script>
 </body>
-
 
 </html>

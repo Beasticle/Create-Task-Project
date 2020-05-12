@@ -14,4 +14,4 @@ app.get('/', function(req, res) {
 
 app.listen(69);
 
-// Will Print out the recommended move
+//Will Print out the recommended move
