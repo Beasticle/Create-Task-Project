@@ -35,14 +35,13 @@ text color: rgb(105, 35, 25)
 
 .game-button {
     background-color: rgba(17, 17, 17, .6);
-    font-size: inherit;
+    font-size: 100px;
     border: transparent;
     width: inherit;
     height: inherit;
     position: relative;
-    top: 25%;
-    left: 0%;
-    transform: translate(0%, -50%);
+    color: azure;
+    text-align: center;
 }
 
 .game-container {
