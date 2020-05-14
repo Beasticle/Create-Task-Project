@@ -33,40 +33,6 @@ text color: rgb(105, 35, 25)
     font-size: large;
 }
 
-.game-button {
-    background-color: rgba(17, 17, 17, .6);
-    font-size: 100px;
-    border: transparent;
-    width: inherit;
-    height: inherit;
-    position: relative;
-    color: azure;
-    text-align: center;
-}
-
-.game-container {
-    /*background-color: rgba(17, 17, 17, .6);*/
-    width: fit-content;
-    height: fit-content;
-}
-.game--container {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 306px;
-    margin: 50px auto;
-    margin-top: 50px !important;
-}
-.cell {
-    font-family: "Permanent Marker", cursive;
-    width: 100px;
-    height: 100px;
-    box-shadow: 0 0 0 1px whitesmoke;
-    border: 1px solid #333333;
-    cursor: pointer;
-    line-height: 100px;
-    font-size: 60px;
-}
-
 .signup {
     color: white;
     text-align: center;
@@ -80,7 +46,7 @@ text color: rgb(105, 35, 25)
     color: whitesmoke;
     background-color: rgba(17, 17, 17, .6);
     text-align: center;
-    height: fit-content;
+    height: min-content;
     width: 100%;
 }
 
@@ -100,16 +66,15 @@ text color: rgb(105, 35, 25)
 }
 
 .sidenav {
-    height: auto;
+    height: fit-content;
     width: 160px;
-    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: rgba(17, 17, 17, 0);
     overflow-x: hidden;
     padding-top: 20px;
-    margin-left: 20px;
+    transform: translateY(-20%);
 }
 
 .sidenav a {
@@ -136,119 +101,4 @@ text color: rgb(105, 35, 25)
     .sidenav a {
         font-size: 20px;
     }
-}
-
-.container {
-    margin: auto;
-    margin-top: 0.5rem;
-    width: 525px;
-  }
-
-.container .square {
-    border: #fff 2.5px solid;
-    width: 170px;
-    height: 170px;
-}
-  
-.container #square-0 {
-    border-left: none;
-    border-top: none;
-    margin-left: 2.5px;
-    margin-top: 2.5px;
-}
-
-.container #square-1 {
-    border-top: none;
-    margin-top: 2.5px;
-}
-
-.container #square-2 {
-    border-right: none;
-    margin-right: 2.5px;
-    border-top: none;
-    margin-top: 2.5px;
-}
-
-.container #square-3 {
-    border-left: none;
-    margin-left: 2.5px;
-}
-
-.container #square-5 {
-    border-right: none;
-    margin-right: 2.5px;
-}
-
-.container #square-6 {
-    border-left: none;
-    margin-left: 2.5px;
-    border-bottom: none;
-    margin-bottom: 2.5px;
-}
-
-.container #square-7 {
-    border-bottom: none;
-    margin-bottom: 2.5px;
-}
-
-.container #square-8 {
-    border-right: none;
-    margin-right: 2.5px;
-    border-bottom: none;
-    margin-bottom: 2.5px;
-}
-
-.square:hover {
-cursor: pointer;
-}
-
-.player-container {
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-}
-
-#player-one,
-#tie,
-#player-two {
-  color: white;
-  text-align: center;
-  font-weight: 350;
-  font-size: 30px;
-  margin: 0 1rem;
-}
-
-.player-icon-container {
-  color: white;
-  background: transparent;
-  outline: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#num-of-players {
-  color: white;
-  display: grid;
-}
-
-#one-player {
-  color: white;
-  grid-column: 1;
-  grid-row: 1;
-  padding-left: 5px;
-}
-
-#two-player {
-  color: white;
-  grid-column: 1;
-  grid-row: 1;
-}
-
-#player-label {
-  color: white;
-  text-align: center;
-  font-size: 1.5rem;
-  margin: -1px;
 }

@@ -7,7 +7,7 @@ var app = express();
 const port = 69;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -30,7 +30,6 @@ app.get('/computer', (req, res) => {
 });
 
 app.post('/user/signup', function (req, res) {
-    app.use(express.static('public'));
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     //AccountController = new AccountController(userModel);
     var password = req.body.password;
@@ -60,5 +59,6 @@ app.post('/user/signup', function (req, res) {
 //    res.sendFile(__dirname + '/public/support.html');
 //    res.sendFile(__dirname + '/public/css/mystyle.css');
 //});
+app.use(express.static('public'));
 
 app.listen(port)

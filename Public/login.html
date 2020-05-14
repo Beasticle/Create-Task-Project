@@ -71,32 +71,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--CUSTOM CSS AND IMPORTS-->
     <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="css/standard.css">
 </head>
 
 <body>
     <!--TOP BANNER-->
     <section id="top-banner">
         <div class="container-fluid">
-            <div class="jumbotron jumbotron-fluid">
-                <h1 style="text-align: center;">Signup for an account here</h1>
-            </div>
-            <!--NAV BAR-->
-            <div class="sidenav">
-                <a class="btn btn-dark" href="/" role="button">Home</a>
-                <a class="btn btn-dark" href="/signup" role="button">Sign up</a>
-                <!--<a class="btn btn-dark" href="./recovery.html" role="button">Support</a>-->
-                <a class="btn btn-dark" href="/about" role="button">About</a>
+            <div class="jumbotron jumbotron-fluid text-center">
+                <div class="row">
+                    <div class="col col-md-2">
+                        <!--NAV BAR-->
+                        <div class="sidenav">
+                            <a class="btn btn-dark" href="/" role="button">Home</a>
+                            <a class="btn btn-dark" href="/login" role="button">Login</a>
+                            <a class="btn btn-dark" href="/signup" role="button">Sign up</a>
+                            <!--<a class="btn btn-dark" href="./recovery.html" role="button">Support</a>-->
+                            <a class="btn btn-dark" href="/about" role="button">About</a>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="col col-md-2">
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <section id="user-signup">
+    <section id="user-login">
         <div class="container text-center signup">
             <form action="/user/login" method="POST" enctype="text/html">
-                <label for="username">Username</label><br>
-                <input type="text" id="username"><br>
+                <label for="userID">Username or Email</label><br>
+                <input name="userID" type="text" id="userID"><br>
                 <label for="password">Password</label><br>
-                <input type="text" id="password"><br>
+                <input name="password" type="text" id="password"><br>
                 <input type="submit" value="Submit">
                 <p id="result"></p>
             </form>

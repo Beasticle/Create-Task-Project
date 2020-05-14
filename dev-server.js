@@ -20,6 +20,10 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/public/signup.html');
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/public/login.html')
+})
+
 app.get('/about', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/about.html');
@@ -47,11 +51,21 @@ app.post('/user/signup', function (req, res) {
         }
         dataOBJ.users.push(newUser)
         fs.writeFileSync('./Database/users.json', JSON.stringify(dataOBJ), (err) => {});
-        res.sendFile(__dirname + '/public/signup.html');
+        res.sendFile(__dirname + '/public/login.html');
     }
     else {
         res.sendFile(__dirname + '/public/errors.html');
     };
+  });
+
+  app.post('/user/login', function (req, res) {
+      var data = fs.readFileSync('./Database/users.json', 'utf8');
+      var userID = req.body.userID;
+      var password = req.body.password;
+      var dataOBJ = JSON.parse(data);
+      console.log(userID, password);
+      console.log(data)
+      console.log(dataOBJ)
   });
 
 //app.get('/support', (req, res) => {

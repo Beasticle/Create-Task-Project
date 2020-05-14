@@ -71,25 +71,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--CUSTOM CSS AND IMPORTS-->
     <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="css/standard.css">
 </head>
 
 <body>
+   <!--TOP BANNER-->
+   <section id="top-banner">
     <div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid">
-            <h1 style="text-align: center;">Your passwords didn't match</h1>
-            <p style="text-align: center;">Please go back to the signup page</p>
-            <a style="text-align: center;" class="btn btn-dark" href="/signup" role="button">Sign up</a>
-            <!--<a id="verus" role="button" class="btn btn-dark">PvP</a>-->
-            <!--<a id="single-player" role="button" class="btn btn-dark" href="/computer">Computer</a>-->
-            <!--<p style="text-align: center;">Login in or sign up to play</p>-->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="row">
+                <div class="col col-md-2">
+                    <!--NAV BAR-->
+                    <div class="sidenav">
+                        <a class="btn btn-dark" href="/" role="button">Home</a>
+                        <a class="btn btn-dark" href="/login" role="button">Login</a>
+                        <a class="btn btn-dark" href="/signup" role="button">Sign up</a>
+                        <!--<a class="btn btn-dark" href="./recovery.html" role="button">Support</a>-->
+                        <a class="btn btn-dark" href="/about" role="button">About</a>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <h1>Your passwords didn't match</h1>
+                    <p>Please go back to the signup page</p>
+                </div>
+                <div class="col col-md-2">
+
+                </div>
+            </div>
         </div>
-        <!--<div class="sidenav">
-            <a class="btn btn-dark" href="/" role="button">Home</a>
-            <a class="btn btn-dark" href="./recovery.html" role="button">Support</a>
-            <a class="btn btn-dark" href="/about" role="button">About</a>
-        </div>-->
     </div>
+</section>
 </body>
 
 </html>
