@@ -8,7 +8,7 @@ const port = 69;
 //var AccountController = require('./Public/controllers/account.js')
 //var userModel = require('./Public/models/user.js')
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use('/user', express.static('public'));
 
 app.get('/', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -37,10 +37,29 @@ app.get('/computer', (req, res) => {
 app.post('/user/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     //AccountController = new AccountController(userModel);
+    var data = fs.readFileSync('./Database/users.json', 'utf8');
+    var dataOBJ = JSON.parse(data);
+    var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.password;
     var passconf = req.body.passconf;
     if (password.localeCompare(passconf)==0) {
-        var newUser = JSON.stringify({username: req.body.username, email: req.body.email, password: req.body.password, passconf: req.body.passconf}, null, 2);
+        for (var i = 0; i < dataOBJ.users.length; i++) {
+            if (dataOBJ.users[i].username.localeCompare(username) == 0 || dataOBJ.users[i].email.localeCompare(email) == 0) {
+                console.log(dataOBJ.users[i].username.localeCompare(username) == 0);
+                res.send('Username or email already exisits');
+                break
+            }
+            else {
+                var jsonObj = {
+                    "username": req.body.username,
+                    "email": req.body.email,
+                    "password": req.body.password,
+                    "passconf": req.body.passconf
+                };
+            }
+        }
+        var newUser = jsonObj;
         var dataOBJ = {}
         var data = fs.readFileSync('./Database/users.json', 'utf8');
         if (!data) {
@@ -51,7 +70,14 @@ app.post('/user/signup', function (req, res) {
         }
         dataOBJ.users.push(newUser)
         fs.writeFileSync('./Database/users.json', JSON.stringify(dataOBJ), (err) => {});
-        res.sendFile(__dirname + '/public/login.html');
+        fs.readFile(__dirname + '/public/login.html', function(err, htmltext){
+            if(err){
+                res.send("ERROR")//.status(200).send(htmltext)
+            }else{
+                res.send(htmltext.toString("utf8"))//.status(200).send(htmltext)
+                console.log(htmltext.toString("utf8"))
+            }
+        });
     }
     else {
         res.sendFile(__dirname + '/public/errors.html');
@@ -63,9 +89,23 @@ app.post('/user/signup', function (req, res) {
       var userID = req.body.userID;
       var password = req.body.password;
       var dataOBJ = JSON.parse(data);
-      console.log(userID, password);
-      console.log(data)
-      console.log(dataOBJ)
+      for (var i = 0; i < dataOBJ.users.length; i++) {
+        console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
+        if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
+            if (dataOBJ.users[i].password.localeCompare(password) == 0) {
+                console.log('suck a dick ' + String(i));
+                res.status(200).sendFile(__dirname + "/public/comp.html");
+                break
+            }
+            else {
+                console.log('WRONG ' + String(i));
+                res.sendFile(__dirname + "/public/login.html");
+            }
+         }else{
+            console.log('WRONG ' + String(i));
+            res.sendFile(__dirname + "/public/login.html");
+         }
+      }
   });
 
 //app.get('/support', (req, res) => {
