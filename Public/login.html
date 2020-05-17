@@ -99,6 +99,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
     </section>
     <section id="user-login">
@@ -114,5 +115,33 @@
         </div>
     </section>
 </body>
+=======
+        </section>
+        <section id="user-login">
+            <div class="container text-center signup">
+                <form">
+                    <label for="userID">Username or Email</label><br>
+                    <input name="userID" type="text" id="userID"><br>
+                    <label for="password">Password</label><br>
+                    <input name="password" type="text" id="password"><br>
+                    <input type="submit" value="Submit" onclick="logintest(document.getElementById('userID'), document.getElementById('password'))">
+                    <p id="result"></p>
+                </form>
+                <script>
+                    function logintest(user, password){
+                        fetch('http://127.0.0.1:69/api/login?user='+user+'&password='+password).then(response => response.json()).then(result => {
+                            if(result.user == "Valid"){
+                                //console.log(result.user = "Valid")
+                                window.location.href = "http://127.0.0.1:69/computer";
+                            }else{
+                                window.location.href = "http://127.0.0.1:69/login";
+                            }
+                        })
+                    }
+                </script>
+            </div>
+        </section>
+    </body>
+>>>>>>> f093a679403d9a143e77dcacae34137093d102f4
 
 </html>
