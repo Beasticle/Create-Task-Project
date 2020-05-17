@@ -91,24 +91,44 @@ app.post('/user/signup', function (req, res) {
 
   app.post('/user/login', function (req, res) {
 
-      var data = fs.readFileSync('./Database/users.json', 'utf8');
-      var userID = req.body.userID;
-      var password = req.body.password;
-      var dataOBJ = JSON.parse(data);
-      for (var i = 0; i < dataOBJ.users.length; i++) {
-        //console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
-        if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
-            if (dataOBJ.users[i].password.localeCompare(password) == 0) {
-                console.log('suck a dick ' + String(i));
-                res.status(200).sendFile(__dirname + "/public/comp.html");
-                break
-            }
-            else {
-                console.log('WRONG ' + String(i));
-                res.sendFile(__dirname + "/public/login.html");
-            }
-         }
-      }
+
+  });
+
+  app.get('/api/login', function(req, res){
+    var data = fs.readFileSync('./Database/users.json', 'utf8');
+    var userID = req.query.user;
+    var password = req.query.password;
+    var dataOBJ = JSON.parse(data);
+    for (var i = 0; i < dataOBJ.users.length; i++) {
+      //console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
+      if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
+          if (dataOBJ.users[i].password.localeCompare(password) == 0) {
+              console.log('suck a dick ' + String(i));
+              var jsonres = {
+                "user": "Valid",
+                "con": "1337"
+              }
+              res.set('Content-Type', 'text/json');
+              res.send(jsonres)
+              break
+          }else{
+              console.log('WRONG ' + String(i));
+              var jsonres = {
+                "user": "NotValid",
+                "con": "69420"
+              }
+              res.set('Content-Type', 'text/json');
+              res.send(jsonres)
+          }
+       }
+    }
+    console.log('WRONG ' + String(i));
+    var jsonres = {
+        "user": "NotValid",
+        "con": "69420"
+    }
+    res.set('Content-Type', 'text/json');
+    res.send(jsonres)
   });
 
 //app.get('/support', (req, res) => {
