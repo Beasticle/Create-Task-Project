@@ -1,6 +1,8 @@
-
+/*
 @import url("bootstrap.min.css");
 @import url("bootstrap-theme.css");
+*/
+
 body {
     margin-top: auto;
     background-image: url(https://wallpapertag.com/wallpaper/full/b/7/4/156631-new-black-textured-background-1920x1080-images.jpg);
@@ -18,6 +20,148 @@ input {
 background color: rgb(71, 58, 44)
 text color: rgb(105, 35, 25)
 */
+/*The Game CSS aka bullshit*/
+.game-container {
+    margin: auto;
+    margin-top: 0.5rem;
+    width: 525px;
+  }
+  
+  #gameboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 160px;
+    color: #fff;
+    font-size: 180px;
+    animation: animateBoard 1s forwards ease-in-out;
+  }
+  
+  @keyframes animateBoard {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .game-container .square {
+    border: #fff 2.5px solid;
+    width: 170px;
+    height: 170px;
+  }
+  
+  .game-container #square-0 {
+    border-left: none;
+    border-top: none;
+    margin-left: 2.5px;
+    margin-top: 2.5px;
+  }
+  
+  .game-container #square-1 {
+    border-top: none;
+    margin-top: 2.5px;
+  }
+  
+  .game-container #square-2 {
+    border-right: none;
+    margin-right: 2.5px;
+    border-top: none;
+    margin-top: 2.5px;
+  }
+  
+  .game-container #square-3 {
+    border-left: none;
+    margin-left: 2.5px;
+  }
+  
+  .game-container #square-5 {
+    border-right: none;
+    margin-right: 2.5px;
+  }
+  
+  .game-container #square-6 {
+    border-left: none;
+    margin-left: 2.5px;
+    border-bottom: none;
+    margin-bottom: 2.5px;
+  }
+  
+  .game-container #square-7 {
+    border-bottom: none;
+    margin-bottom: 2.5px;
+  }
+  
+  .game-container #square-8 {
+    border-right: none;
+    margin-right: 2.5px;
+    border-bottom: none;
+    margin-bottom: 2.5px;
+  }
+  
+  .square:hover {
+    cursor: pointer;
+  }
+  
+  
+  /* Game-Info */
+  
+  .player-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  
+  #player-one,
+  #tie,
+  #player-two {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .player-icon-container {
+    background: transparent;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #num-of-players {
+    display: grid;
+  }
+  
+  #one-player {
+    grid-column: 1;
+    grid-row: 1;
+    padding-left: 5px;
+  }
+  
+  #two-player {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  #player-label {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: -1px;
+  }
+  
+  .show {
+    visibility: visible;
+    float: left;
+  }
+  
+  .hidden {
+    visibility: hidden;
+    float: right;
+  }
+  
+/*end game bullshit*/
+
 
 #verus {
     margin-top: 30px;
