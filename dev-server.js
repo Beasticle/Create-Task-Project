@@ -2,50 +2,46 @@ const favicon = require('express-favicon');
 const BodyParser = require('raw-body');
 const express = require('express');
 const util = require('util');
+const path = require('path');
 const fs = require('fs');
 var app = express();
 const port = 69;
 //var AccountController = require('./Public/controllers/account.js')
 //var userModel = require('./Public/models/user.js')
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
-app.get('/css/style.css', function(req, res) {
+app.use(express.urlencoded({ extended: true }));
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get('/standard.css', function(req, res) {
     res.sendFile(__dirname + '/' + 'public/css/stanard.css')
-    app.use(express.static('public'));
 })
 
 app.get('/', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/index.html');
-    app.use(express.static('public'));
 });
 
 app.get('/signup', (req, res) => { 
     //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/signup.html');
-    app.use(express.static('public'));
 });
 
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/public/login.html')
-    app.use(express.static('public'));
 })
 
 app.get('/about', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/about.html');
-    app.use(express.static('public'));
 });
 
 app.get('/computer', (req, res) => {
    // app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/comp.html');
-    app.use(express.static('public'));
 });
 
 app.post('/user/signup', function (req, res) {
-    app.use(express.static('public'));
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     //AccountController = new AccountController(userModel);
     var data = fs.readFileSync('./Database/users.json', 'utf8');
@@ -94,13 +90,13 @@ app.post('/user/signup', function (req, res) {
 });
 
   app.post('/user/login', function (req, res) {
-    app.use(express.static('public'));
+
       var data = fs.readFileSync('./Database/users.json', 'utf8');
       var userID = req.body.userID;
       var password = req.body.password;
       var dataOBJ = JSON.parse(data);
       for (var i = 0; i < dataOBJ.users.length; i++) {
-        console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
+        //console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
         if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
             if (dataOBJ.users[i].password.localeCompare(password) == 0) {
                 console.log('suck a dick ' + String(i));
@@ -111,9 +107,6 @@ app.post('/user/signup', function (req, res) {
                 console.log('WRONG ' + String(i));
                 res.sendFile(__dirname + "/public/login.html");
             }
-         }else{
-            console.log('WRONG ' + String(i));
-            res.sendFile(__dirname + "/public/login.html");
          }
       }
   });
