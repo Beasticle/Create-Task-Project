@@ -11,19 +11,17 @@ const port = 69;
 
 app.use(express.urlencoded({ extended: true }));
 //app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/standard.css', function(req, res) {
+    res.set('Content-Type', 'text/css')
     res.sendFile(__dirname + '/' + 'public/css/stanard.css')
 })
 
 app.get('/', (req, res) => {
-    //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/signup', (req, res) => { 
-    //app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/signup.html');
 });
 

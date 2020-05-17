@@ -110,6 +110,7 @@ text color: rgb(105, 35, 25)
     display: flex;
     justify-content: center;
     margin: 1rem 0;
+    color: white;
   }
   
   #player-one,
