@@ -8,7 +8,11 @@ const port = 69;
 //var AccountController = require('./Public/controllers/account.js')
 //var userModel = require('./Public/models/user.js')
 app.use(express.urlencoded({ extended: true }));
-app.use('/user', express.static('public'));
+app.use(express.static('public'));
+
+app.get('/css/style.css', function(req, res) {
+    res.sendFile(__dirname + '/' + 'public/css/stanard.css')
+})
 
 app.get('/', (req, res) => {
     //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -43,6 +47,7 @@ app.post('/user/signup', function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var passconf = req.body.passconf;
+
     if (password.localeCompare(passconf)==0) {
         for (var i = 0; i < dataOBJ.users.length; i++) {
             if (dataOBJ.users[i].username.localeCompare(username) == 0 || dataOBJ.users[i].email.localeCompare(email) == 0) {
@@ -60,13 +65,11 @@ app.post('/user/signup', function (req, res) {
             }
         }
         var newUser = jsonObj;
-        var dataOBJ = {}
-        var data = fs.readFileSync('./Database/users.json', 'utf8');
         if (!data) {
             dataOBJ.users=[];
         }
         else {
-           dataOBJ = JSON.parse(data);
+            dataOBJ = JSON.parse(data);
         }
         dataOBJ.users.push(newUser)
         fs.writeFileSync('./Database/users.json', JSON.stringify(dataOBJ), (err) => {});
@@ -74,15 +77,14 @@ app.post('/user/signup', function (req, res) {
             if(err){
                 res.send("ERROR")//.status(200).send(htmltext)
             }else{
-                res.send(htmltext.toString("utf8"))//.status(200).send(htmltext)
-                console.log(htmltext.toString("utf8"))
+                res.sendFile(__dirname + '/public/comp.html')
             }
         });
     }
     else {
         res.sendFile(__dirname + '/public/errors.html');
     };
-  });
+});
 
   app.post('/user/login', function (req, res) {
       var data = fs.readFileSync('./Database/users.json', 'utf8');
