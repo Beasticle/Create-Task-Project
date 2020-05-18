@@ -48,11 +48,11 @@ const Gameboard = (function () {
     // Result to be a win by Player 1, Player 2, or a tie
     var result = null;
   
-    // Refresh page
-    const refreshBtn = document.getElementById('reset-btn');
+    // Refresh page 
+    /*const refreshBtn = document.getElementById('reset-btn');
     refreshBtn.addEventListener('click', function () {
       location.reload()
-    });
+    });*/
   
     // Variable for each square and click event
     const _squares = document.querySelectorAll('.square');
@@ -272,7 +272,7 @@ const Gameboard = (function () {
   
   })();
   
-  
+  /*
   const Audio = (function () {
     // Audio file variables
     const refreshSound = document.getElementById('refresh-audio');
@@ -325,4 +325,4 @@ const Gameboard = (function () {
     const _squares = document.querySelectorAll('.square');
     _squares.forEach(square => square.addEventListener('click', setPiece));
   
-  })();
+  })();*/

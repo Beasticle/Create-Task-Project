@@ -20,6 +20,68 @@ input {
 background color: rgb(71, 58, 44)
 text color: rgb(105, 35, 25)
 */
+/*pop up crap*/
+/* Popup Box */
+#popup-container {
+  background: rgba(0, 0, 0, .4);
+  display: none;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.popup {
+  cursor: pointer;
+  display: block;
+  height: 40%;
+  opacity: 0.9;
+  font-size: 2.2rem;
+}
+
+.popup .helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.popup>div {
+  background-color: #fff;
+  display: inline-block;
+  height: auto;
+  max-width: 20rem;
+  min-height: 7.5rem;
+  vertical-align: middle;
+  width: 60%;
+  position: relative;
+  border-radius: 8px;
+  padding: 1rem 5%;
+}
+
+#popup-close {
+  background-color: #fff;
+  border: 3px solid #999;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  font-size: 1.7rem;
+  line-height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+}
+
+#popup-close:hover {
+  background-color: #ccc;
+}
+
 /*The Game CSS aka bullshit*/
 .game-container {
     margin: auto;

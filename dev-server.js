@@ -10,11 +10,16 @@ const port = 69;
 //var userModel = require('./Public/models/user.js')
 
 app.use(express.urlencoded({ extended: true }));
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
-app.get('/standard.css', function(req, res) {
-    res.set('Content-Type', 'text/css')
-    res.sendFile(__dirname + '/' + 'public/css/stanard.css')
+app.get('css/standard.css', function(req, res) {
+    res.header('Content-Type', 'text/css')
+    res.sendFile(__dirname  + '/css/stanard.css');
+})
+
+app.get('js/main.js', function(req, res) {
+    res.header('Content-Type', 'text/javascript')
+    res.sendFile(__dirname  + '/js/main.js');
 })
 
 app.get('/', (req, res) => {
@@ -39,7 +44,7 @@ app.get('/computer', (req, res) => {
     res.sendFile(__dirname + '/public/comp.html');
 });
 
-app.post('/user/signup', function (req, res) {
+app.post('/api/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     //AccountController = new AccountController(userModel);
     var data = fs.readFileSync('./Database/users.json', 'utf8');
@@ -87,46 +92,27 @@ app.post('/user/signup', function (req, res) {
     };
 });
 
-  app.post('/user/login', function (req, res) {
-
-
-  });
-
-  app.get('/api/login', function(req, res){
+  app.post('/api/login', function(req, res){
     var data = fs.readFileSync('./Database/users.json', 'utf8');
-    var userID = req.query.user;
-    var password = req.query.password;
+    var userID = req.body.userID;
+    var password = req.body.password;
+    console.log(userID, password)
     var dataOBJ = JSON.parse(data);
     for (var i = 0; i < dataOBJ.users.length; i++) {
       //console.log((dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0))
       if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
           if (dataOBJ.users[i].password.localeCompare(password) == 0) {
               console.log('suck a dick ' + String(i));
-              var jsonres = {
-                "user": "Valid",
-                "con": "1337"
-              }
-              res.set('Content-Type', 'text/json');
-              res.send(jsonres)
+              res.sendFile(__dirname + '/public/comp.html');
               break
           }else{
               console.log('WRONG ' + String(i));
-              var jsonres = {
-                "user": "NotValid",
-                "con": "69420"
-              }
-              res.set('Content-Type', 'text/json');
-              res.send(jsonres)
+              res.sendFile(__dirname + '/public/login.html');
           }
        }
     }
     console.log('WRONG ' + String(i));
-    var jsonres = {
-        "user": "NotValid",
-        "con": "69420"
-    }
-    res.set('Content-Type', 'text/json');
-    res.send(jsonres)
+    res.sendFile(__dirname + '/public/login.html');
   });
 
 //app.get('/support', (req, res) => {
