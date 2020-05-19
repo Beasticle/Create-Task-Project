@@ -14,7 +14,10 @@ app.use(express.static('public'));
 
 app.get('css/standard.css', function(req, res) {
     res.header('Content-Type', 'text/css')
-    res.sendFile(__dirname  + '/css/stanard.css');
+    res.set('Content-Type', 'text/css');
+    res.type('text/css');
+    res.contentType('text/css');
+    res.sendFile(__dirname  + '/public/css/stanard.css');
 })
 
 app.get('js/main.js', function(req, res) {
@@ -43,6 +46,11 @@ app.get('/computer', (req, res) => {
    // app.use(favicon(__dirname + '/public/favicon.ico'));
     res.sendFile(__dirname + '/public/comp.html');
 });
+
+app.get('/errors', (req, res) => {
+    // app.use(favicon(__dirname + '/public/favicon.ico'));
+     res.sendFile(__dirname + '/public/errors');
+ });
 
 app.post('/api/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
@@ -83,12 +91,12 @@ app.post('/api/signup', function (req, res) {
             if(err){
                 res.send("ERROR")//.status(200).send(htmltext)
             }else{
-                res.sendFile(__dirname + '/public/comp.html')
+                res.redirect('/Computer');
             }
         });
     }
     else {
-        res.sendFile(__dirname + '/public/errors.html');
+        res.redirect('/errors')
     };
 });
 
@@ -103,16 +111,16 @@ app.post('/api/signup', function (req, res) {
       if (dataOBJ.users[i].username.localeCompare(userID) == 0 || dataOBJ.users[i].email.localeCompare(userID) == 0) {
           if (dataOBJ.users[i].password.localeCompare(password) == 0) {
               console.log('suck a dick ' + String(i));
-              res.sendFile(__dirname + '/public/comp.html');
+              res.redirect('/Computer')
               break
           }else{
               console.log('WRONG ' + String(i));
-              res.sendFile(__dirname + '/public/login.html');
+              res.redirect('/login')
           }
        }
     }
     console.log('WRONG ' + String(i));
-    res.sendFile(__dirname + '/public/login.html');
+    res.redirect('/login')
   });
 
 //app.get('/support', (req, res) => {
