@@ -5,6 +5,7 @@
 
 body {
     margin-top: auto;
+    background-position: center;
     background-image: url(https://wallpapertag.com/wallpaper/full/b/7/4/156631-new-black-textured-background-1920x1080-images.jpg);
 }
 
@@ -23,7 +24,8 @@ text color: rgb(105, 35, 25)
 /*pop up crap*/
 /* Popup Box */
 #popup-container {
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, .6);
+  color: whitesmoke;
   display: none;
   height: 100%;
   position: fixed;
@@ -49,7 +51,8 @@ text color: rgb(105, 35, 25)
 }
 
 .popup>div {
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
+  color: white;
   display: inline-block;
   height: auto;
   max-width: 20rem;
@@ -62,7 +65,7 @@ text color: rgb(105, 35, 25)
 }
 
 #popup-close {
-  background-color: #fff;
+  background-color: black;
   border: 3px solid #999;
   border-radius: 50%;
   cursor: pointer;
@@ -178,6 +181,7 @@ text color: rgb(105, 35, 25)
   #player-one,
   #tie,
   #player-two {
+    color: white;
     text-align: center;
     font-weight: 700;
     font-size: 2rem;
@@ -185,6 +189,7 @@ text color: rgb(105, 35, 25)
   }
   
   .player-icon-container {
+    color: white;
     background: transparent;
     outline: none;
     display: flex;
@@ -193,16 +198,19 @@ text color: rgb(105, 35, 25)
   }
   
   #num-of-players {
+    color: white;
     display: grid;
   }
   
   #one-player {
+    color: whitesmoke;
     grid-column: 1;
     grid-row: 1;
     padding-left: 5px;
   }
   
   #two-player {
+    color: royalblue;
     grid-column: 1;
     grid-row: 1;
   }

@@ -111,40 +111,45 @@
             </div>
         </div>
     </section>
-    
-    <section class="game-container">
-        <div id="gameboard">
-          <div class="square" id="square-0"></div>
-          <div class="square" id="square-1"></div>
-          <div class="square" id="square-2"></div>
-          <div class="square" id="square-3"></div>
-          <div class="square" id="square-4"></div>
-          <div class="square" id="square-5"></div>
-          <div class="square" id="square-6"></div>
-          <div class="square" id="square-7"></div>
-          <div class="square" id="square-8"></div>
+        <div class="row">
+            <div class="col col-md-2"></div>
+            <div class="col-md text-center">
+                <section class="game-container">
+                    <div id="gameboard">
+                    <div class="square" id="square-0"></div>
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                    <div class="square" id="square-6"></div>
+                    <div class="square" id="square-7"></div>
+                    <div class="square" id="square-8"></div>
+                    </div>
+                </section>
+              
+                <!-- Player and Score Information -->
+                <section class="player-container">
+                    <div id="player-one" class="score-labels">
+                    PLAYER (X)<br>0
+                    </div>
+                    <div id="tie" class="score-labels">
+                    TIE<br>0
+                    </div>
+                    <div id="player-two" class="score-labels">
+                    COMPUTER (O)<br>0
+                    </div>
+                    <div class="player-icon-container">
+                    <div id="num-of-players">
+                        <i class="fas fa-user btn show" id="one-player"></i>
+                        <i class="fas fa-user-friends btn hidden" id="two-player"></i>
+                    </div>
+                    <p id="player-label">1P</p>
+                    </div>
+                </section>
+            </div>
+            <div class="col col-md-2"></div>
         </div>
-      </section>
-    
-      <!-- Player and Score Information -->
-      <section class="player-container">
-        <div id="player-one" class="score-labels">
-          PLAYER (X)<br>0
-        </div>
-        <div id="tie" class="score-labels">
-          TIE<br>0
-        </div>
-        <div id="player-two" class="score-labels">
-          COMPUTER (O)<br>0
-        </div>
-        <div class="player-icon-container">
-          <div id="num-of-players">
-            <i class="fas fa-user btn show" id="one-player"></i>
-            <i class="fas fa-user-friends btn hidden" id="two-player"></i>
-          </div>
-          <p id="player-label">1P</p>
-        </div>
-      </section>
     
 
     <!--SCRIPTS-->
