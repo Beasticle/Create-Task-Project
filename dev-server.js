@@ -1,16 +1,53 @@
 const favicon = require('express-favicon');
-const BodyParser = require('raw-body');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const express = require('express');
 const util = require('util');
 const path = require('path');
 const fs = require('fs');
 var app = express();
 const port = 69;
+//start of beta testing mongo database
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 //var AccountController = require('./Public/controllers/account.js')
 //var userModel = require('./Public/models/user.js')
 
+app.use('/test', (req, res) => {
+    res.sendFile(__dirname + '/public/test.html')
+})
 
+var mongoDB = 'mongodb://66.42.135.214:69/my_database';
+mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error'));
+
+var Schema = mongoose.Schema;
+
+var userSchema = new Schema({
+    username: String,
+    email: String,
+    password: String,
+    passconf: String
+})
+
+var userModel = mongoose.model('userModel', userSchema);
+
+app.post('/addData', (req, res) => {
+    var myData = new userModel({username: req.body.firstName, email: req.body.lastName });
+    myData.save()
+    .then(item => {
+        res.send('item saved to data base')
+    })
+    .catch(err => {
+        res.status(400).send('unable to save')
+    })
+})
+
+//end of beta shit
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
