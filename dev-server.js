@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require('fs');
 var app = express();
 const port = 69;
+/*
 //start of beta testing mongo database
 mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo");
 
@@ -48,6 +49,7 @@ app.post('/addData', (req, res) => {
 })
 
 //end of beta shit
+*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
