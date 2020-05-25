@@ -52,6 +52,8 @@ app.get('/errors', (req, res) => {
      res.sendFile(__dirname + '/public/errors');
  });
 
+
+ //This post request handler is both my algorithms and abstractions.
 app.post('/api/signup', function (req, res) {
     //res.send('POST request to the homepage ' + util.inspect(req.body) + ' hi')
     //AccountController = new AccountController(userModel);
